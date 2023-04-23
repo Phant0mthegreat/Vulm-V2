@@ -75,6 +75,11 @@ while True:
                                      
     if n1=='2' or n1=='02':
         cep2=input(f'{f}- >>>{am}[{f} Fonte Viacep {am}]{f} \n CEP >> ')
+        if len(set(cep2))==1:
+         print('')
+         print(f'''[{red}!{f}] {red}CEP inválido, tente novamente.{f}''')
+         input('[ENTER] para sair.')
+         exit()
         if len(cep2)==8:
             url2='https://viacep.com.br/ws/{}/json/'.format(cep2)
             res2 = requests.get(url2);req2=res2.json()
@@ -82,21 +87,25 @@ while True:
             print(resl2)
             input('[ENTER] para voltar ao menu.')
         else:
-            print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}01001000 {f}')
+            print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}00000000 {f}')
             print('')
             input('[ENTER] para voltar ao menu.')
           
     elif n1=='1' or n1=='01':
         cep3=input(f'{f}- >>>{am}[{f} Fonte Apicep {am}]{f} \n CEP >> ')
+        if len(set(cep3))==1:
+         print('')
+         print(f'''[{red}!{f}] {red}CEP inválido, tente novamente.{f}''')
+         input('[ENTER] para sair.')
+         exit()
         if len(cep3) == 8:          
           
             url3='https://ws.apicep.com/cep/{}.json'.format(cep3) 
             res3 = requests.get(url3);req3=res3.json()
             resl3="\n{}-------------------------------------------------\nby: Phant0m The Great{} \n{}[Status]:{}\n[Ok]:{}\n[Código]:{}\n[Estado]:{}\n[Cidade]:{}\n[Distrito]:{}\n[Endereço]:{}\n[StatusText]:{} {}\n-------------------------------------------------".format(ng,f,green,req3['status'],req3['ok'],req3['code'],req3['state'],req3['city'],req3['district'],req3['address'],req3['statusText'],f)
             print(resl3)
-            input('[ENTER] para voltar ao menu.')
         else:
-            print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}01001000 {f}')
+            print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}00000000 {f}')
             print('')
             input('[ENTER] para voltar ao menu.')
   elif esc=='02' or esc=='2':
@@ -108,15 +117,24 @@ while True:
     print(f'''{bred}({f}[ENTER] para voltar ao menu{bred})''')
     print('Fortamo: XXXXXXXXXXXXXX')
     cpnj1=input(f'{f}- >>>{am}[ {f}Fonte Receita Federal {am}]{f} \n CNPJ >> ')
+    if len(set(cpnj1))==1:
+      print('')
+      print(f'''[{red}!{f}] {red}CNPJ inválido, tente novamente.{f}''')
+      input('[ENTER] para sair.')
+      exit()
     if len(cpnj1) == 14:
+      
       url1='https://www.receitaws.com.br/v1/cnpj/{}'.format(cpnj1)
       res=requests.get(url1);req1=res.json()
-      br="{}\n-------------------------------------------------by: Phant0m The Great {}\n{}[Data situação]:{}\n[Motivo situação]:{}\n[Complemento]:{}\n[Tipo]:{}\n[Nome]:{}\n[Telefone]:{}\n[Situação]:{}\n[Bairro]:{}\n[Logradouro]:{}\n[Número]:{}\n[Cep]:{}\n[Municipio]:{}\n[Fantasia]:{}\n[Porte]:{}\n[Abertura]:{}\n[Natureza juridica]:{}\n[Uf]:{}\n[Cnpj]:{}\n[Ultima atualização]:{}\n[Status]:{}\n[Email]:{}\n[Efr]:{}\n[Situação especial]:{}\n[Data situação especial]:{}".format(ng,f,green,req1['data_situacao'],req1['motivo_situacao'],req1['complemento'],req1['tipo'],req1['nome'],req1['telefone'],req1['situacao'],req1['bairro'],req1['logradouro'],req1['numero'],req1['cep'],req1['municipio'],req1['fantasia'],req1['porte'],req1['abertura'],req1['natureza_juridica'],req1['uf'],req1['cnpj'],req1['ultima_atualizacao'],req1['status'],req1['email'],req1['efr'],req1['situacao_especial'],req1['data_situacao_especial'],f)
+      br="{}\n-----------------------------------------------by: Phant0m The Great {}\n{}[Data situação]:{}\n[Motivo situação]:{}\n[Complemento]:{}\n[Tipo]:{}\n[Nome]:{}\n[Telefone]:{}\n[Situação]:{}\n[Bairro]:{}\n[Logradouro]:{}\n[Número]:{}\n[Cep]:{}\n[Municipio]:{}\n[Fantasia]:{}\n[Porte]:{}\n[Abertura]:{}\n[Natureza juridica]:{}\n[Uf]:{}\n[Cnpj]:{}\n[Ultima atualização]:{}\n[Status]:{}\n[Email]:{}\n[Efr]:{}\n[Situação especial]:{}\n[Data situação especial]:{}".format(ng,f,green,req1['data_situacao'],req1['motivo_situacao'],req1['complemento'],req1['tipo'],req1['nome'],req1['telefone'],req1['situacao'],req1['bairro'],req1['logradouro'],req1['numero'],req1['cep'],req1['municipio'],req1['fantasia'],req1['porte'],req1['abertura'],req1['natureza_juridica'],req1['uf'],req1['cnpj'],req1['ultima_atualizacao'],req1['status'],req1['email'],req1['efr'],req1['situacao_especial'],req1['data_situacao_especial'],f)
       print(br)
       print(f'''{f}-''' * 47)
       input('[ENTER] para voltar ao menu.')
     else:
+      print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}01000000000000 {f}')
       print('')
+      input('[ENTER] para voltar ao menu.')
+      
   elif esc=='03' or esc=='3':
     os.system("clear")
     print(f'''{green}               .--.
@@ -181,7 +199,7 @@ while True:
 {f}
 
   """)
-    print(f"""[{yellow}*{f}] Versão: V2 (beta)\n[{yellow}*{f}] Nome da ferramenta: Vulm\n[{yellow}*{f}] Criador: Phant0m The Great\n""")
+    print(f"""[{yellow}*{f}] Versão: V2 (alpha)\n[{yellow}*{f}] Nome da ferramenta: Vulm\n[{yellow}*{f}] Criador: Phant0m The Great\n""")
     input(f"""[ENTER] Para voltar ao menu.""")
   elif esc=='05' or esc=='5':
     os.system("clear")
