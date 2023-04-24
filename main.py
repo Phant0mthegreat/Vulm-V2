@@ -86,10 +86,12 @@ while True:
             resl2="\n{}-------------------------------------------------\n{}{}[Cep]:{}\n[Logradouro]:{}\n[Complemento]:{}\n[Bairro]:{}\n[Localidade]:{}\n[Uf]:{}\n[Ibge]:{}\n[Gia]:{} {}\n-------------------------------------------------".format(ng,f,green,req2['cep'],req2['logradouro'],req2['complemento'],req2['bairro'],req2['localidade'],req2['uf'],req2['ibge'],req2['gia'],f)        
             print(resl2)
             input('[ENTER] para voltar ao menu.')
+
         else:
             print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}00000000 {f}')
             print('')
             input('[ENTER] para voltar ao menu.')
+        
           
     elif n1=='1' or n1=='01':
         cep3=input(f'{f}- >>>{am}[{f} Fonte Apicep {am}]{f} \n CEP >> ')
@@ -131,10 +133,7 @@ while True:
       print(br)
       print(f'''{f}-''' * 47)
       input('[ENTER] para voltar ao menu.')
-    else:
-      print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}01000000000000 {f}')
-      print('')
-      input('[ENTER] para voltar ao menu.')
+    
       
   elif esc=='03' or esc=='3':
     os.system("clear")
