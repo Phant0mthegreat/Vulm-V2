@@ -26,7 +26,7 @@ cyan="\033[0;36m"
 bcyan="\033[1;36m"
 white="\033[0;37m"
 nc="\033[00m"
-#colors--
+#colors--fim
 
 print('─────█─▄▀█──█▀▄─█─────')
 print('────▐▌──────────▐▌────')
@@ -55,11 +55,12 @@ while True:
                Feito pôr: Phant0m The Great                              
 {f}
 ══════════════════════════════════════════════════════
-{f}[{green}01{f}]{f} Consultar CEP{f}
-{f}[{green}02{f}]{f} Consultar CNPJ{f}
-{f}[{green}03{f}]{f} Consultar IP {f}
+{f}[{green}01{f}]{f} Consultar CEP
+{f}[{green}02{f}]{f} Consultar CNPJ
+{f}[{green}03{f}]{f} Consultar IP
 {f}[{green}04{f}]{f} Informações
-{f}[{green}05{f}]{f} Sair{f}
+{f}[{green}05{f}]{f} Contato
+{f}[{green}06{f}]{f} Sair
 ══════════════════════════════════════════════════════
 {f}    """)
   esc=input(f'''[{yellow}?{f}] Digite a sua escolha: ''')
@@ -120,7 +121,6 @@ while True:
     print(f'''{bred}({f}[ENTER] para voltar ao menu{bred})''')
     print('Fortamo: XXXXXXXXXXXXXX')
     cpnj1=input(f'{f}- >>>{am}[ {f}Fonte Receita Federal {am}]{f} \n CNPJ >> ')
-
     if len(set(cpnj1))==1:
       print('')
       print(f'''[{red}!{f}] {red}CNPJ inválido, tente novamente.{f}''')
@@ -208,7 +208,10 @@ while True:
   """)
     print(f"""[{yellow}*{f}] Versão: V2 (alpha)\n[{yellow}*{f}] Nome da ferramenta: Vulm\n[{yellow}*{f}] Criador: Phant0m The Great\n""")
     input(f"""[ENTER] Para voltar ao menu.""")
+
   elif esc=='05' or esc=='5':
+    os.system(f'termux-open-url https://metodos.phant0m007.repl.co/')
+  elif esc=='06' or esc=='6':
     os.system("clear")
     print(f'''{green}
                       
