@@ -120,17 +120,13 @@ while True:
     print(f'''{bred}({f}[ENTER] para voltar ao menu{bred})''')
     print('Fortamo: XXXXXXXXXXXXXX')
     cpnj1=input(f'{f}- >>>{am}[ {f}Fonte Receita Federal {am}]{f} \n CNPJ >> ')
-    if '0001' not in cpnj1:
-      print('')
-      print(f'''[{red}!{f}] {red}CNPJ inválido, tente novamente.{f}''')
-      input('[ENTER] para sair.')
-      exit()
+
     if len(set(cpnj1))==1:
       print('')
       print(f'''[{red}!{f}] {red}CNPJ inválido, tente novamente.{f}''')
       input('[ENTER] para sair.')
       exit()
-    if len(cpnj1) != 14:
+    if '0001' not in cpnj1 and cpnj1 != '':
       print('')
       print(f'''[{red}!{f}] {red}CNPJ inválido, tente novamente.{f}''')
       input('[ENTER] para sair.')
