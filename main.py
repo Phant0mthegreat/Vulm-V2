@@ -3,6 +3,7 @@ import ipaddress
 import os
 import sys
 import time
+import re
 #colors--
 vd='\033[32m'
 am='\033[33m'
@@ -76,32 +77,37 @@ while True:
                                      
     if n1=='2' or n1=='02':
         cep2=input(f'{f}- >>>{am}[{f} Fonte Viacep {am}]{f} \n CEP >> ')
+        pattern = re.compile(r'\s+')    
+        cep2 = re.sub(pattern, '', cep2)
         if len(set(cep2))==1:
          print('')
          print(f'''[{red}!{f}] {red}CEP inválido, tente novamente.{f}''')
          input('[ENTER] para sair.')
          exit()
-        if len(cep2)==8:
+        if len(cep2)==8 and cep2.isnumeric() == True:
             url2='https://viacep.com.br/ws/{}/json/'.format(cep2)
             res2 = requests.get(url2);req2=res2.json()
             resl2="\n{}-------------------------------------------------\n{}{}[Cep]:{}\n[Logradouro]:{}\n[Complemento]:{}\n[Bairro]:{}\n[Localidade]:{}\n[Uf]:{}\n[Ibge]:{}\n[Gia]:{} {}\n-------------------------------------------------".format(ng,f,green,req2['cep'],req2['logradouro'],req2['complemento'],req2['bairro'],req2['localidade'],req2['uf'],req2['ibge'],req2['gia'],f)        
             print(resl2)
             input('[ENTER] para voltar ao menu.')
-
         else:
-            print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}00000000 {f}')
-            print('')
-            input('[ENTER] para voltar ao menu.')
+         print('')
+         print(f'''[{red}!{f}] {red}CEP inválido, tente novamente.{f}''')
+         input('[ENTER] para sair.')
+         exit()
+         
+
         
-          
     elif n1=='1' or n1=='01':
         cep3=input(f'{f}- >>>{am}[{f} Fonte Apicep {am}]{f} \n CEP >> ')
+        pattern = re.compile(r'\s+')    
+        cep3 = re.sub(pattern, '', cep3)
         if len(set(cep3))==1:
          print('')
          print(f'''[{red}!{f}] {red}CEP inválido, tente novamente.{f}''')
          input('[ENTER] para sair.')
          exit()
-        if len(cep3) == 8:          
+        if len(cep3) == 8 and cep3.isnumeric() == True:          
           
             url3='https://ws.apicep.com/cep/{}.json'.format(cep3) 
             res3 = requests.get(url3);req3=res3.json()
@@ -109,9 +115,10 @@ while True:
             print(resl3)
             input('[ENTER] para voltar ao menu.')
         else:
-            print(f' {vm}[!] valor invalido \n digite nesse formato \n {f}ex: {ng}00000000 {f}')
-            print('')
-            input('[ENTER] para voltar ao menu.')
+         print('')
+         print(f'''[{red}!{f}] {red}CEP inválido, tente novamente.{f}''')
+         input('[ENTER] para sair.')
+         exit()
   elif esc=='02' or esc=='2':
     os.system("clear")
     print(f'''{green}               .--.
@@ -121,17 +128,11 @@ while True:
     print(f'''{bred}({f}[ENTER] para voltar ao menu{bred})''')
     print('Fortamo: XXXXXXXXXXXXXX')
     cpnj1=input(f'{f}- >>>{am}[ {f}Fonte Receita Federal {am}]{f} \n CNPJ >> ')
-    if len(set(cpnj1))==1:
-      print('')
-      print(f'''[{red}!{f}] {red}CNPJ inválido, tente novamente.{f}''')
-      input('[ENTER] para sair.')
-      exit()
-    if '0001' not in cpnj1 and cpnj1 != '':
-      print('')
-      print(f'''[{red}!{f}] {red}CNPJ inválido, tente novamente.{f}''')
-      input('[ENTER] para sair.')
-      exit()
-    if len(cpnj1) == 14:
+    pattern = re.compile(r'\s+')    
+    cpnj1 = re.sub(pattern, '', cpnj1)
+    
+
+    if len(cpnj1) == 14 and '0001' in cpnj1 and cpnj1.isnumeric() == True:
       
       url1='https://www.receitaws.com.br/v1/cnpj/{}'.format(cpnj1)
       res=requests.get(url1);req1=res.json()
@@ -139,6 +140,11 @@ while True:
       print(br)
       print(f'''{f}-''' * 47)
       input('[ENTER] para voltar ao menu.')
+    else:
+      print('')
+      print(f'''[{red}!{f}] {red}CPF inválido, tente novamente.{f}''')
+      input('[ENTER] para sair.')
+      exit()
     
       
   elif esc=='03' or esc=='3':
