@@ -15,6 +15,11 @@ e com algumas novas funções.
  - `git clone github.com/Phant0mthegreat/Vulm-V2`
  - `cd Vulm-V2`
  - `pip install -r requirements.txt && python3 main.py`
+# Utilização
+Após sair da ferramenta, basta digitar
+ - `cd Vulm-V2`
+ - `python3 main.py`
 
+Para iniciar o programa quando quiser
 # Atualizações
 É provável que as atualizações sejam focadas apenas na resolução de falhas/bugs.
