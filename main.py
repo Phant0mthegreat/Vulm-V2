@@ -128,10 +128,17 @@ while True:
     print(f'''{bred}({f}[ENTER] para voltar ao menu{bred})''')
     print('Fortamo: XXXXXXXXXXXXXX')
     cpnj1=input(f'{f}- >>>{am}[ {f}Fonte Receita Federal {am}]{f} \n CNPJ >> ')
-    pattern = re.compile(r'\s+')    
-    cpnj1 = re.sub(pattern, '', cpnj1)
-    
-
+    if len(cpnj1) != 14 and len(cpnj1) != 0:
+      print('')
+      print(f'''[{red}!{f}] {red}CPF inválido, tente novamente.{f}''')
+      input('[ENTER] para sair.')
+      exit()
+    if cpnj1 != '' and '0001' not in cpnj1:
+      print('')
+      print(f'''[{red}!{f}] {red}CPF inválido, tente novamente.{f}''')
+      input('[ENTER] para sair.')
+      exit()
+  
     if len(cpnj1) == 14 and '0001' in cpnj1 and cpnj1.isnumeric() == True:
       
       url1='https://www.receitaws.com.br/v1/cnpj/{}'.format(cpnj1)
@@ -140,11 +147,7 @@ while True:
       print(br)
       print(f'''{f}-''' * 47)
       input('[ENTER] para voltar ao menu.')
-    else:
-      print('')
-      print(f'''[{red}!{f}] {red}CPF inválido, tente novamente.{f}''')
-      input('[ENTER] para sair.')
-      exit()
+  
     
       
   elif esc=='03' or esc=='3':
