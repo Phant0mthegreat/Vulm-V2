@@ -11,10 +11,10 @@ e com algumas novas funções.
 
 
 # Instalação no Termux
- - `pkg i python -y && pkg i git -y`
+ - `pkg i python -y && pkg i git -y && pkg i python2 -y`
  - `git clone github.com/Phant0mthegreat/Vulm-V2`
  - `cd Vulm-V2`
- - `python3 main.py`
+ - `pip install -r requirements.txt && python3 main.py`
 
 # Atualizações
 É provável que as atualizações sejam focadas apenas na resolução de falhas/bugs.
